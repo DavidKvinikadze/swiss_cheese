@@ -10,8 +10,7 @@ filename = input("Please provide a file name to search and display:\n")
 filename = sanitize_input(filename)
 
 # Construct the command using subprocess
-command = "cat" + filename
-
+command = ["cat", filename]
 # Use subprocess to run the command
 try:
     subprocess.run(command, check=True)
