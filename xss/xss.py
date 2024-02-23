@@ -8,6 +8,8 @@ def index():
     if request.method == 'POST':
         # Retrieve user input from the form
         user_input = request.form.get('user_input', '')
+        # escape the user input:
+        user_input.replace('<', '&lt;').replace('>', '&gt;')
 
         # Display user input directly without proper sanitization (for demonstration purposes)
         return render_template('index.html', user_input=user_input, display_script=True)
